@@ -1,5 +1,10 @@
 edu/ucr/cs/cs226/group4/utils/WebClient.class
+edu/ucr/cs/cs226/group4/utils/Config.class
 edu/ucr/cs/cs226/group4/response/Response.class
-edu/ucr/cs/cs226/group4/config/WebRequestConfig.class
+edu/ucr/cs/cs226/group4/config/TwitterDataConfig.class
 edu/ucr/cs/cs226/group4/client/TwitterClient.class
+edu/ucr/cs/cs226/group4/data/DataDump.class
+edu/ucr/cs/cs226/group4/utils/Parser.class
+edu/ucr/cs/cs226/group4/config/WebRequestConfig.class
+edu/ucr/cs/cs226/group4/config/TwitterPaginationConfig.class
 edu/ucr/cs/cs226/group4/perceptor/Perceptor.class

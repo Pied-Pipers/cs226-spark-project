@@ -19,8 +19,7 @@ public class Response {
 
 	String respString = null;
 	StatusLine respStatus = null;
-	Integer respCode = null; 
-	
+	Integer respCode = null;
 
 	public Response() {
 		// TODO Auto-generated constructor stub

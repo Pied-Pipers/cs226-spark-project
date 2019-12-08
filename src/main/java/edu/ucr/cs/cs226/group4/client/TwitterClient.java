@@ -3,9 +3,15 @@
  */
 package edu.ucr.cs.cs226.group4.client;
 
+import java.io.IOException;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.ParseException;
+
 import edu.ucr.cs.cs226.group4.config.WebRequestConfig;
 import edu.ucr.cs.cs226.group4.response.Response;
 import edu.ucr.cs.cs226.group4.utils.WebClient;
+import edu.ucr.cs.cs226.group4.utils.Config;
 
 /**
  * @author sattu
@@ -13,23 +19,36 @@ import edu.ucr.cs.cs226.group4.utils.WebClient;
  */
 public class TwitterClient {
 
+	String bearerToken = null;
+	String keyword = null;
+	String apiURL = null;
+	String location = null;
+	String longitude = null;
+	String latitude = null;
+	String radius = "23mi";
+	Long maxResults = null;
+
 	/**
+	 * @throws ParseException
+	 * @throws IOException
 	 * 
 	 */
-	public TwitterClient() {
+	public TwitterClient() throws IOException, ParseException {
 		// TODO Auto-generated constructor stub
+		Config config = new Config("/Users/sattu/eclipse-workspace/edu.ucr.cs.cs226.group4/appConfig.json");
+		bearerToken = (String) config.getValueForKey("bearerToken");
+		keyword = (String) config.getValueForKey("keyword");
+		apiURL = (String) config.getValueForKey("apiURL");
+		location = (String) config.getValueForKey("location");
+		longitude = (String) config.getValueForKey("longitude");
+		latitude = (String) config.getValueForKey("latitude");
+		maxResults = (Long) config.getValueForKey("maxResults");
 	}
-	
-	public Response getTwitterData() {
+
+	public Response getTwitterData(String token) {
 		Response response = null;
 		WebClient webClient = new WebClient();
-		WebRequestConfig webRequestConfig = new WebRequestConfig();	
-		webRequestConfig.setURL("https://api.twitter.com/1.1/tweets/search/30day/staging.json");
-		webRequestConfig.addHeader("authorization", "Bearer AAAAAAAAAAAAAAAAAAAAAFh3AwEAAAAAKa5uhdaJyiy%2BUauYqCxkBgM2320%3DxNMezwTsqVWP3zQdj1GQ0FrGzJKtWgC8jR0f37ig9yGtAQrzYo");
-		webRequestConfig.addHeader("header", "application/json");
-		String body = "{ \"query\":\"from:narendramodi lang:en\", \"maxResults\": \"100\" }";
-		webRequestConfig.setBody(body);
-		
+		WebRequestConfig webRequestConfig = createRequestConfig(token);
 		try {
 			response = webClient.doPost(webRequestConfig);
 		} catch (Exception e) {
@@ -37,9 +56,30 @@ public class TwitterClient {
 			System.out.println(":::: ERROR : error occurred in getTwitterData() ::::");
 			e.printStackTrace();
 		}
-
 		return response;
-		
+	}
+
+	public WebRequestConfig createRequestConfig(String token) {
+		WebRequestConfig webRequestConfig = new WebRequestConfig();
+		webRequestConfig.setURL(this.apiURL);
+		webRequestConfig.addHeader("authorization", "Bearer " + this.bearerToken);
+		webRequestConfig.addHeader("header", "application/json");
+		webRequestConfig.setBody(createRequestBody(token).toString());
+		return webRequestConfig;
+	}
+
+	public JSONObject createRequestBody(String token) {
+		JSONObject jsonObject = new JSONObject();
+		// String body = "{ \"query\": \"\"nike\" lang:en point_radius:["+
+		// this.longitude + " " + this.latitude + " " + this.radius]\"}";
+		String query = " \"nike\" lang:en point_radius:[" + this.longitude + " " + this.latitude + " " + this.radius
+				+ "]";
+		jsonObject.put("query", query);
+		jsonObject.put("maxResults", this.maxResults);
+		if (token != null) {
+			jsonObject.put("next", token);
+		}
+		return jsonObject;
 	}
 
 }
