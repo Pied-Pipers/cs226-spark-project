@@ -4,7 +4,7 @@
   "keyword" : "nike",
   "maxResults": 10,
   "location" : "california",
-  "bearerToken" : "AAAAAAAAAAAAAAAAAAAAAFh3AwEAAAAAKa5uhdaJyiy%2BUauYqCxkBgM2320%3DxNMezwTsqVWP3zQdj1GQ0FrGzJKtWgC8jR0f37ig9yGtAQrzYo",
+  "bearerToken" : "AAAAAAAAAAAAAAAAAAAAACI%2BBAEAAAAAbpZyZNfIpKwd3UrFpPTP15KK39g%3Dut3PGAzXQT63PIuBzgdkTBvZSGVxkDzKwpTCae8PrNFJ8JMXXc",
   "absolutePathForFilteredData" : "/Users/sattu/eclipse-workspace/edu.ucr.cs.cs226.group4/prod_filtered_data.json",
   "absolutePathForRawData" : "/Users/sattu/eclipse-workspace/edu.ucr.cs.cs226.group4/prod_raw_data.json", 
   "longitude" :  "-118.186790", 
