@@ -1,7 +1,7 @@
 # cs226-spark-project
 PRODUCT PERCEPTION ANALYSIS
 
-# Refer appConfig.json file to understand what all configs to set before running the app..
+Refer appConfig.json file to understand what all configs to set before running the app..
 
 # Creating the Package
 mvn compile assembly:single
