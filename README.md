@@ -1,5 +1,5 @@
-# cs226-spark-project
-PRODUCT PERCEPTION ANALYSIS
+# Component - Data Collector
+Data Collector aims to hit necessary Twiiter APIs and fetch the data to perform further processing.
 
 Refer appConfig.json file to understand what all configs to set before running the app..
 
