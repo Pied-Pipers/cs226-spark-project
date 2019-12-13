@@ -1,0 +1,12 @@
+{
+  "apiURL" : "https://api.twitter.com/1.1/tweets/search/30day/staging.json",
+  "upperBoundonHttpRequests" : 2,
+  "keyword" : "nike",
+  "maxResults": 10,
+  "location" : "california",
+  "bearerToken" : "AAAAAAAAAAAAAAAAAAAAACI%2BBAEAAAAAbpZyZNfIpKwd3UrFpPTP15KK39g%3Dut3PGAzXQT63PIuBzgdkTBvZSGVxkDzKwpTCae8PrNFJ8JMXXc",
+  "absolutePathForFilteredData" : "/Users/sattu/eclipse-workspace/edu.ucr.cs.cs226.group4/prod_filtered_data.json",
+  "absolutePathForRawData" : "/Users/sattu/eclipse-workspace/edu.ucr.cs.cs226.group4/prod_raw_data.json", 
+  "longitude" :  "-118.186790", 
+  "latitude" :  "34.118697"
+}
